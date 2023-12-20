@@ -1,16 +1,16 @@
 --[[----------------------------------------------------------------------------
 
   Application Name: LEDSample
-                                                                                                                  
-                                                                                             
+
+
   Summary:
   Showing basic functionality for using the IO ports.
-  
+
   Description:
   The bidirectional digital ports can be defined as input or output.
   The basics for using the ports are shown in this application.
   Setting a port to as input, setting a port as output and registering a function to a change in the input signal.
-  
+
   How to run:
   Start by running the app (F5) or debugging (F7+F10).
   Set a breakpoint on the first row inside the main function to debug step-by-step.
@@ -40,8 +40,7 @@ Timer.setPeriodic(gTimer, true)
 Timer.setExpirationTime(gTimer, 1000)
 Timer.start(gTimer)
 
--- Toggle the state of dout_2 with every timer expiration
---@toggleDout2State()
+---Toggle the state of dout_2 with every timer expiration
 local function toggleDout2State()
   currentDout2State = not currentDout2State
   Connector.DigitalOut.set(dout_2, currentDout2State)
@@ -49,9 +48,9 @@ local function toggleDout2State()
 end
 Timer.register(gTimer, 'OnExpired', toggleDout2State)
 
--- To track the changing value of an input, register a callback on
--- the OnChange event of the DI1 port.
---@printDin1State(newState:bool)
+---To track the changing value of an input, register a callback on
+---the OnChange event of the DI1 port.
+---@param newState bool
 local function printDin1State(newState)
   print('Digital I/O 1 changed state to ' .. tostring(newState))
 end
